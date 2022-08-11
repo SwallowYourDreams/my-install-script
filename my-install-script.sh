@@ -1,6 +1,7 @@
 #!/bin/bash
 # This script will quickly install software that I personally like to use on Debian-based Linux machines.
 # It is not meant to be pretty or provide a lot of user feedback, but rather just gets the job done.
+# It's still work-in-progress, and I'll comment out or uncomment software as I need it. If you see any use in this, feel free to take it as a starting block and tailor it to your needs.
 
 # PPAs
 	# Define PPAs
@@ -91,6 +92,18 @@
 # REMOVE
 # This will remove some unneeded default packages in Linux Mint.
 	# Define packages to be removed
+	remove=(
+		xviewer
+		xed
+		xreader
+		# hypnotix
+		pix
+	)
+	function remove() {
+		sudo apt remove "${remove[@]}"
+	}
+	#Finalise
+	remove
 
 # URLs for manual download of .deb packages
 	# Define URLs
