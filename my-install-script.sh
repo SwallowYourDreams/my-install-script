@@ -78,6 +78,7 @@
 		# Cloud services
 			nextcloud-client # Nextcloud
 			nextcloud-client-nemo # Nextcloud in Nemo
+			synthing # Cloudless ad-hoc syncing between devices
 		# Gaming and gaming-related
 			# wine-installer # Windows software compatibility layer
 			#wine-stable
