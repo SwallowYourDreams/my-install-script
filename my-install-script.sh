@@ -136,6 +136,7 @@
 	githuburls=(
 		https://github.com/SwallowYourDreams/ANGRYsearch/archive/master.zip
 		https://github.com/SwallowYourDreams/cpu-control/archive/master.zip
+		https://github.com/rizmut/libreoffice-style-breeze/archive/master.zip
 	)
 	function github() {
 		#cd ~/tmp
