@@ -12,6 +12,7 @@
 		"ppa:nextcloud-devs/client" # Nextcloud desktop client and nemo integration
 		# "ppa:openshot.developers" # Video editing
 		"ppa:solaar-unifying/stable" # Pairing tool for Logitech Unifying receivers
+		"ppa:daniruiz/flat-remix" # Flat-remix icon theme
 	)
 	# Adds PPAs. Installation will be handled by the variable $reposoftware. Any package added through a ppa must also be noted down there
 	function addppas() {
