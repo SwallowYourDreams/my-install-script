@@ -33,7 +33,7 @@
 			gimp # Image editing
 			vlc # Media playback
 			gpicview # Image viewer
-			#audacity # Audio recording and editing
+			audacity # Audio recording and editing
 			#kdenlive # video editing
 			obs-studio # Screencasting and streaming
 			easytag # mp3 tagging
@@ -76,6 +76,7 @@
 			#wish # Needed by xbindkeys
 			#xautomation # Keyboard / mouse input emulator; needed for remapping of keys and functions
 			# virtualbox # VMs
+   			easystroke
 		# Cloud services
 			nextcloud-client # Nextcloud
 			nextcloud-client-nemo # Nextcloud in Nemo
@@ -97,7 +98,7 @@
 	remove=(
 		xviewer
 		xed
-		xreader
+		# xreader # default thumbnailer on Mint
 		# hypnotix
 		pix
 	)
