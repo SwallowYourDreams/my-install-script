@@ -8,7 +8,7 @@
 	ppas=(
 		"ppa:phoerious/keepassxc" # Password manager
 		# "ppa:flexiondotorg/audio" # mp3Gain, normalises mp3 file volume in bulk
-		"ppa:libretro/stable" # Retroarch; emulator for a multitude of console ROMs
+		# "ppa:libretro/stable" # Retroarch; emulator for a multitude of console ROMs
 		"ppa:nextcloud-devs/client" # Nextcloud desktop client and nemo integration
 		# "ppa:openshot.developers" # Video editing
 		"ppa:solaar-unifying/stable" # Pairing tool for Logitech Unifying receivers
@@ -34,15 +34,13 @@
 			vlc # Media playback
 			gpicview # Image viewer
 			audacity # Audio recording and editing
-			#kdenlive # video editing
-			obs-studio # Screencasting and streaming
+			# kdenlive # video editing
+			# obs-studio # Screencasting and streaming
 			easytag # mp3 tagging
 			# darktable # RAW image converter
 			nemo-media-columns # EXIF attributes in Nemo
-			#gnome-raw-thumbnailer # Creates and displays thumbnails for RAW image files, e.g. Canon's .CR2 format
-			#qjackctl # Configuration tool for JACK audio server
-			#jack-rack # JACK tool for LSPDA audio effects
-			#handbrake # DVD ripping and video conversion
+			# gnome-raw-thumbnailer # Creates and displays thumbnails for RAW image files, e.g. Canon's .CR2 format
+			handbrake # DVD ripping and video conversion
 		# Office and productivity software
 			okular # PDF viewer
 			pdfsam # PDF editor
@@ -59,24 +57,22 @@
 			htop # Commandline process explorer
 			samba # Network share utility
 			nemo-terminal # Embedded terminal for Nemo
-			wakeonlan # Sends magic packages to wake devices on LAN
-			#terminator # Alternative Bash shell
+			etherwake # Wake up devices over LAN (WOL)
+			# terminator # Alternative Bash shell
 			solaar # Manages Logitech Unifying receivers 
+			network-manager-vpnc-gnome # Plugin to enable configuration of IPSec VPN tunnels
+			network-manager-openvpn-gnome # Plugin to enable configuration of OpenVPN tunnels
 		# Coding and web development
-			#geany # Text editor for coding
+			geany # Text editor for coding
 			markdown # Plain text markup language
-			#qttools5-dev-tools 
+			qttools5-dev-tools 
 			python3-pyqt5 # PyQt5
 		# Security and privacy
 			keepassxc # password manager
 		# Misc
-			gnome-tasks # Notes and checklists
 			mint-backgrounds-tricia # Desktop backgrounds from Mint 19.3
-			#xbindkeys # Remapping of keyboard / mouse input
-			#wish # Needed by xbindkeys
-			#xautomation # Keyboard / mouse input emulator; needed for remapping of keys and functions
-			# virtualbox # VMs
-   			easystroke
+			virt-manager # GUI for managing kvm virtual machines
+   			easystroke # Mouse gestures
 		# Cloud services
 			nextcloud-client # Nextcloud
 			nextcloud-client-nemo # Nextcloud in Nemo
@@ -87,7 +83,7 @@
 			#winetricks
 			#playonlinux
 			#haguichi #VPN LAN for gaming
-			retroarch  # Console ROM emulator
+			# retroarch  # Console ROM emulator
 	)
 	# Finalise; comment out to skip the whole step
 	sudo apt install "${reposoftware[@]}"
@@ -96,7 +92,7 @@
 # This will remove some unneeded default packages in Linux Mint.
 	# Define packages to be removed
 	remove=(
-		xviewer
+		# xviewer
 		xed
 		# xreader # default thumbnailer on Mint
 		# hypnotix
@@ -113,16 +109,17 @@
 	softwareurls=(
 		https://www.freefilesync.org/download.php # File synchronisation
 		#https://www.apachefriends.org/ # Runs local apache server
-		https://www.veracrypt.fr/ # Container / full disk encryption
+		# https://www.veracrypt.fr/ # Container / full disk encryption
 		# http://www.opera.com/de/download  # Browser
 		#https://anydesk.com/ # Remote desktop tool
-		https://code-industry.net/get-masterpdfeditor/ # PDF editing
+		# https://code-industry.net/get-masterpdfeditor/ # PDF editing
 		#https://www.fotoparadies.de/bestellsoftware/download.html # Photo book tool
 		#https://mediathekview.de/download/ # Play and download public German television broadcasts
-		https://openaudible.org/ # Converts Audible's .aax to .mp3
-		#https://freetubeapp.io/#download # Free Youtube wrapper
+		# https://openaudible.org/ # Converts Audible's .aax to .mp3
+		https://freetubeapp.io/#download # Free Youtube wrapper
 		#https://www.google.com/chrome/ # Google's cancerous browser
 		#https://www.torproject.org/download/ # Tor Browser
+		https://github.com/rustdesk/rustdesk/releases # Remote desktop
 	)
 	function openurls() {
 		# Open each URL in a new tab
@@ -151,7 +148,7 @@
 		done
 	}
 	# Finalise; comment out to skip the whole step
-	github
+	# github
 
 # URLs to Firefox addons
 	# Define URLs
@@ -172,7 +169,7 @@
 		done
 	}
 	# Finalise; comment out to skip the whole step
-	firefoxaddons
+	# firefoxaddons
 
 # Signal desktop app
 	function installsignal() {
@@ -188,4 +185,14 @@
 		wget https://raw.github.com/geany/geany-themes/master/colorschemes/vibrant-ink.conf -P ~/.config/geany/colorschemes/ # geany vibrant colour scheme
 	}
 	# Finalise; comment out to skip the whole step
-	downloadgeanycolourscheme
+	# downloadgeanycolourscheme
+
+# owncloud desktop client for Ubuntu 22.04
+	function intallowncloud() {
+		wget -nv https://download.owncloud.com/desktop/ownCloud/stable/latest/linux/Ubuntu_22.04/Release.key -O - | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/owncloud-client.gpg > /dev/null
+		echo 'deb https://download.owncloud.com/desktop/ownCloud/stable/latest/linux/Ubuntu_22.04/ /' | sudo tee -a /etc/apt/sources.list.d/owncloud-client.list
+		sudo apt update
+		sudo apt install owncloud-client
+	}
+	# Finalise; comment out to skip the whole step
+	installowncloud
